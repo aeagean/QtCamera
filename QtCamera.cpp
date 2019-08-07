@@ -14,7 +14,7 @@ QtCamera::QtCamera(QVideoWidget *widget) :
     m_isStarted(false),
     m_camera(NULL)
 {
-    selectDevice(QCameraInfo("@device:pnp:\\\\?\\usb#vid_0ac8&pid_301b#5&29de4ffb&0&3#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global"));
+    selectDevice(QCameraInfo::defaultCamera());
     start();
 
     connect(&m_checkDeviceListTimer, SIGNAL(timeout()), this, SLOT(checkDeviceList()));
